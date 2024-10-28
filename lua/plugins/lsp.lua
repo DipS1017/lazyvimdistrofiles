@@ -1,5 +1,4 @@
 return {
-  -- tools
   {
     "williamboman/mason.nvim",
     opts = function(_, opts)
@@ -10,6 +9,7 @@ return {
         "tailwindcss-language-server",
         "typescript-language-server",
         "css-lsp",
+        "emmet-ls",
       })
     end,
   },
@@ -22,6 +22,7 @@ return {
     },
   },
   -- lsp servers
+
   {
     "neovim/nvim-lspconfig",
     opts = {
@@ -38,7 +39,15 @@ return {
           root_dir = function(...)
             return require("lspconfig.util").root_pattern(".git")(...)
           end,
-          single_file_support = false,
+          single_file_support = true,
+          filetypes = {
+            "javascript",
+            "javascriptreact",
+            "javascript.jsx",
+            "typescript",
+            "typescriptreact",
+            "typescript.tsx",
+          },
           settings = {
             typescript = {
               inlayHints = {
@@ -66,7 +75,6 @@ return {
         },
         html = {},
         lua_ls = {
-          -- enabled = false,
           single_file_support = true,
           settings = {
             Lua = {
@@ -126,6 +134,25 @@ return {
                   indent_size = "2",
                   continuation_indent_size = "2",
                 },
+              },
+            },
+          },
+        },
+        emmet_ls = {
+          capabilities = {
+            textDocument = {
+              completion = {
+                completionItem = {
+                  snippetSupport = true,
+                },
+              },
+            },
+          },
+          filetypes = { "html", "typescriptreact", "javascript", "javascriptreact", "css", "sass", "scss", "less" },
+          init_options = {
+            html = {
+              options = {
+                ["bem.enabled"] = true,
               },
             },
           },
