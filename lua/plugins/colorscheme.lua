@@ -18,7 +18,7 @@
 	},
 } ]]
 
-return {
+--[[  return {
   {
     "craftzdog/solarized-osaka.nvim",
     lazy = false,
@@ -28,8 +28,8 @@ return {
       vim.cmd("colorscheme solarized-osaka")
     end,
   },
-}
---[[
+} ]]
+--[[ 
 return {
   'rebelot/kanagawa.nvim',
   config = function()
@@ -52,7 +52,7 @@ return {
         overrides = function(colors) -- add/modify highlights
           return {}
         end,
-        theme = "dragon", -- Load "wave" theme when 'background' option is not set
+        theme = "wave", -- Load "wave" theme when 'background' option is not set
         background = {   -- map the value of 'background' option to a theme
           dark = "dragon", -- try "dragon" !
           light = "lotus"
@@ -63,29 +63,30 @@ return {
     -- setup must be called before loading
     vim.cmd("colorscheme kanagawa")
   end
-}
-]]
---
---    return {
---   {
---     "catppuccin/nvim",
---     lazy = false,
---     name = "catppuccin",
---     priority = 1000,
---     config = function()
---       require("catppuccin").setup({
---         -- transparent_background = true,
---          -- term_colors = true,
---         integrations = {
---           -- add integrations for plugins if needed
---         },
---       })
---       vim.cmd.colorscheme("catppuccin-mocha")
---     end,
---   },
---
+} ]]
 
---[[   return {
+--[[ 
+   return {
+  {
+    "catppuccin/nvim",
+    lazy = false,
+    name = "catppuccin",
+    priority = 1000,
+    config = function()
+      require("catppuccin").setup({
+        transparent_background = true,
+         term_colors = true,
+        integrations = {
+          -- add integrations for plugins if needed
+        },
+      })
+      vim.cmd.colorscheme("catppuccin-mocha")
+    end,
+  },
+       }
+ ]]
+
+    return {
 	"navarasu/onedark.nvim",
 	config = function()
 		-- Lua
@@ -131,4 +132,4 @@ return {
     vim.cmd.colorscheme("onedark")
 	end,
 
-} ]]
+} 

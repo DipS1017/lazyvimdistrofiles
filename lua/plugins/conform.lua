@@ -1,22 +1,23 @@
 
--- Return the conform plugin for LazyVim's plugin management
 return {
   "stevearc/conform.nvim",
   dependencies = { "mason.nvim" },
   opts = function()
     return {
       default_format_opts = {
-        timeout_ms = 3000,
+        timeout_ms = 5000, -- Adjusted timeout
         async = false,
       },
       formatters_by_ft = {
-        lua = { "stylua" },        -- Lua formatter
-        sh = { "shfmt" },          -- Shell formatter
-        js = { "prettier" },       -- JavaScript formatter
-        ts = { "prettier" },       -- TypeScript formatter
-        py = { "black" },          -- Python formatter
-        csharp = { "dotnet" },     -- C# formatter (using dotnet formatter)
-        java = { "google-java-format" }, -- Java formatter
+        lua = { "stylua" },
+        sh = { "shfmt" },
+        javascript = { "prettier" },
+        javascriptreact = { "prettier" },
+        typescript = { "prettier" },
+        typescriptreact = { "prettier" },
+        python = { "black" },
+        cs = { "dotnet" },
+        java = { "google-java-format" },
       },
       formatters = {
         injected = { options = { ignore_errors = true } },
@@ -25,11 +26,19 @@ return {
   end,
   keys = {
     {
-      "<leader>gf", 
+      "<leader>gf",
       function()
-        require("conform").format() -- Format using conform
+        require("conform").format()
       end,
       desc = "Format with Conform",
+    },
+    {
+      "<leader>gs",
+      function()
+        require("conform").format()
+        vim.cmd("write")
+      end,
+      desc = "Format and Save",
     },
   },
 }

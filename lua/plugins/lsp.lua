@@ -30,11 +30,15 @@ return {
       ---@type lspconfig.options
       servers = {
         cssls = {},
-        tailwindcss = {
-          root_dir = function(...)
-            return require("lspconfig.util").root_pattern(".git")(...)
-          end,
-        },
+     
+tailwindcss = {
+  root_dir = function(fname)
+    return require("lspconfig.util").root_pattern("tailwind.config.js", ".git")(fname)
+  end,
+
+filetypes = { "html", "javascript", "javascriptreact", "typescript", "typescriptreact", "css" },
+},
+
         tsserver = {
           root_dir = function(...)
             return require("lspconfig.util").root_pattern(".git")(...)
