@@ -17,8 +17,8 @@
 		end,
 	},
 } ]]
-
---[[  return {
+--[[ 
+return {
   {
     "craftzdog/solarized-osaka.nvim",
     lazy = false,
@@ -65,8 +65,7 @@ return {
   end
 } ]]
 
---[[ 
-   return {
+--[[ return {
   {
     "catppuccin/nvim",
     lazy = false,
@@ -75,7 +74,7 @@ return {
     config = function()
       require("catppuccin").setup({
         transparent_background = true,
-         term_colors = true,
+        term_colors = true,
         integrations = {
           -- add integrations for plugins if needed
         },
@@ -83,10 +82,9 @@ return {
       vim.cmd.colorscheme("catppuccin-mocha")
     end,
   },
-       }
- ]]
+} ]]
 
-    return {
+--[[     return {
 	"navarasu/onedark.nvim",
 	config = function()
 		-- Lua
@@ -132,4 +130,42 @@ return {
     vim.cmd.colorscheme("onedark")
 	end,
 
-} 
+} ]]
+--[[ 
+return {
+
+  {
+    "sainnhe/sonokai",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      -- Optionally configure and load the colorscheme
+      -- directly inside the plugin declaration.
+      vim.g.sonokai_transparent_background = 1
+      vim.g.sonokai_enable_italic = true
+      vim.g.sonokai_style = "espresso" --default,atlantis,andromeda,shusia,maia
+
+      vim.cmd.colorscheme("sonokai")
+    end,
+  },
+} ]]
+
+return {
+  {
+    "rose-pine/neovim",
+    name = "rose-pine",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      -- Optionally configure the colorscheme
+      require("rose-pine").setup({
+        variant = "moon", -- Options: 'main', 'moon', 'dawn'
+        dark_variant = "main",
+        disable_background = true,
+        disable_float_background = true,
+      })
+      -- Apply the colorscheme
+      vim.cmd.colorscheme("rose-pine")
+    end,
+  },
+}
