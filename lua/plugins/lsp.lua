@@ -4,6 +4,9 @@ return {
     opts = function(_, opts)
       vim.list_extend(opts.ensure_installed, {
         "luacheck",
+        "pyright",
+        "mypy",
+        "ruff",
         "shellcheck",
         "shfmt",
         "tailwindcss-language-server",
@@ -162,7 +165,8 @@ filetypes = { "html", "javascript", "javascriptreact", "typescript", "typescript
           },
         },
       },
-      setup = {},
+   
+         setup = {},
     },
   },
   {
