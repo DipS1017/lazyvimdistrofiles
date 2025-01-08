@@ -31,3 +31,13 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 vim.opt.timeoutlen = 1000
 vim.opt.ttimeoutlen = 0
+
+vim.g.snacks_animate = false
+
+vim.diagnostic.config({
+  virtual_text = false,  -- Disable inline diagnostics
+  signs = true,          -- Keep signs in the sign column
+  underline = true,      -- Retain underlines for errors/warnings
+  update_in_insert = false, -- Disable updates in insert mode
+  severity_sort = true,  -- Sort diagnostics by severity
+})

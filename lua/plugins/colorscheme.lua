@@ -150,22 +150,30 @@ return {
   },
 } ]]
 
-return {
+
+return{
   {
     "rose-pine/neovim",
     name = "rose-pine",
     lazy = false,
     priority = 1000,
     config = function()
-      -- Optionally configure the colorscheme
+      -- Optionally configure the colorscheme with italics enabled for certain syntax groups
       require("rose-pine").setup({
         variant = "moon", -- Options: 'main', 'moon', 'dawn'
         dark_variant = "main",
         disable_background = true,
         disable_float_background = true,
+        highlight_groups = {
+          Comment = { italic = true },
+          String = { italic = true },
+          Keyword = { italic = true },
+          Function = { italic = true },
+        },
       })
       -- Apply the colorscheme
       vim.cmd.colorscheme("rose-pine")
     end,
   },
 }
+
